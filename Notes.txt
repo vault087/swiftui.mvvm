@@ -1,1 +1,6 @@
 1. EnvironmentObject can't be used inside init()
+2. Use EnvironmentObject, ObservedObject or StateObject only if you really need to update the whole view hierarchy
+3. UI doesn't reload if you use `class ViewModel: BaseViewModel`, `class BaseViewModel: ObservableObject`,
+  have to use `class ViewModel: BaseViewModel, ObservableObject`, `class BaseViewModel` instead
+4. Do not initialize using placeholders/default values inside ViewModel as View will treat it as a new values and reload itself
+5. In view do not keep reference to the store, instead use ViewModel and mark @published only properties required for UI

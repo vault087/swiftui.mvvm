@@ -9,9 +9,24 @@
 import Foundation
 
 class Counter {
-    var counter = 0
-    func getCounter() -> Int {
-        counter += 1
-        return counter
+  static var viewModelStoreCounter = [String: Counter]()
+  
+  static func getCounter(for obj: Any) -> Counter {
+    let key = String(describing: obj)
+    if let counter = viewModelStoreCounter[key] {
+      return counter
+    } else {
+      viewModelStoreCounter[key] = Counter()
+      return viewModelStoreCounter[key]!
     }
+  }
+
+  
+  private(set) var value = 0
+  func nextCounter() -> Int {
+    value += 1
+    return value
+  }
 }
+
+
