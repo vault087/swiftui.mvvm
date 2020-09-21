@@ -18,4 +18,3 @@ public struct CellView: View {
   }
   
 }
-

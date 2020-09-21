@@ -43,7 +43,7 @@ class ContentViewModel: ObservableObject {
     storeCounter = store.counter
     cars = store.cars
     
-    store.$counter.assign(to: $storeCounter)
-    store.$cars.assign(to: $cars)
+    store.$counter.assign(to: &$storeCounter)
+    store.$cars.assign(to: &$cars)
   }
 }

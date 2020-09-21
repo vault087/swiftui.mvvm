@@ -21,7 +21,7 @@ class CellHeaderViewModel: ViewModel, ObservableObject {
     self.storeCounter = store.counter
     super.init()
 
-    store.$counter.assign(to: $storeCounter)
+    store.$counter.assign(to: &$storeCounter)
   }
   
   func tap() {
